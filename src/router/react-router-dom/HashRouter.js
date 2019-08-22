@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 
+
 export default class HashRouter extends Component {
   // 定义子级的参数类型
   static childContextTypes = {
     location: PropTypes.object,
-    history: PropTypes.object,
-    match: PropTypes.object
+    history: PropTypes.object
   }
   constructor(props) {
     super(props)
@@ -22,9 +22,6 @@ export default class HashRouter extends Component {
         push(path){
           window.location.hash = path
         }
-      },
-      match: {
-        params: {}
       }
     }
   }

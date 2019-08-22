@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 export default class UserDetail extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       user: {}
     }
@@ -12,13 +12,15 @@ export default class UserDetail extends Component {
     let users = userStr? JSON.parse(userStr): []
 
     // 如何拿到地址栏中传的参数？？？
-    let user = users.find(user => user.id == params.id)
+    let user = users.find(user => user.id == this.props.match.params.id)
+    console.log(user)
     this.setState({
       user
     })
   }
   render() {
-    let user = this.props.user
+    let user = this.state.user
+
    return (
      <div>{user.id} : { user.username}</div>
    )

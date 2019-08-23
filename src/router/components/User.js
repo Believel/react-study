@@ -17,11 +17,11 @@ export default class User extends Component {
             </ul>
           </nav>
           <div>
-            <Switch>
+            {/* <Switch> */}
               <Route path="/user/list" component={UserList}></Route>
               <Route path="/user/add" component={UserAdd}></Route>
               <Route path="/user/detail/:id" component={UserDetail}></Route>
-            </Switch>
+            {/* </Switch> */}
           </div>
         </div>
       </div>

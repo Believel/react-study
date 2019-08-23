@@ -2,9 +2,12 @@
 import React, { Suspense, lazy } from 'react';
 import App from '../App';
 import { HashRouter, Route, Switch} from './react-router-dom';
+import Protected from './components/Protected';
+import Login from './components/Login';
 
 const Counter = lazy(() => import('../components/Counter'))
 const DOMdiff = lazy(() => import('../components/DOMdiff'))
+
 
 let Home  = (props, context) => {
   console.log(props)
@@ -40,17 +43,19 @@ let Home  = (props, context) => {
 let User = lazy(() => import('./components/User'))
 let Profile = () => <div>个人设置</div>
 
+// 渲染的时候会先取当前的路径(location.hash),然后跟path进行匹配
 const myRouter = () => 
   <HashRouter>
     <App>
       <Suspense fallback={<div>Loading...</div>}>
-        <Switch>
+        {/* <Switch> */}
           <Route exact path="/home" component={Home}></Route>
           <Route exact path="/user" component={User}></Route>
-          <Route exact path="/profile" component={Profile}></Route>
+          <Protected path="/profile" component={Profile}></Protected>
+          <Route path="/login" component={Login}></Route>
           <Route exact path="/counter" component={Counter}></Route>
           <Route exact path="/dom" component={DOMdiff}></Route>
-        </Switch>
+        {/* </Switch> */}
       </Suspense>
     </App>
   </HashRouter>

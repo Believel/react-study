@@ -19,7 +19,7 @@ export default class Route extends Component {
   }
   render() {
     
-    let { path, component: Component } = this.props;
+    let { path, component: Component, render } = this.props;
     console.log('Route render path ' + path)
     let { location } = this.context
     let result = location.pathname.match(this.reg)
@@ -33,7 +33,20 @@ export default class Route extends Component {
         params: params,
         path: window.location.hash.slice(1)
       }
-      return <Component {...this.context} match={match}/>
+      let props = {
+        match: match,
+        location: this.context.location,
+        history: this.context.history
+
+      }
+      if(render) {
+        return render(props)
+      } else if (Component) {
+        return <Component {...props}/>
+      } else {
+        return null
+      }
+     
     } else {
       return null
     }

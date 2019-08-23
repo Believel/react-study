@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-
+import pathToRegexp  from 'path-to-regexp'; // 将字符串转成正则表达式
 
 export default class HashRouter extends Component {
   // 定义子级的参数类型

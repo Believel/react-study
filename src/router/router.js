@@ -1,7 +1,7 @@
 // import { HashRouter, Route,  Switch } from 'react-router-dom';
 import React, { Suspense, lazy } from 'react';
 import App from '../App';
-import { HashRouter, Route} from './react-router-dom';
+import { HashRouter, Route, Switch} from './react-router-dom';
 
 const Counter = lazy(() => import('../components/Counter'))
 const DOMdiff = lazy(() => import('../components/DOMdiff'))
@@ -44,13 +44,13 @@ const myRouter = () =>
   <HashRouter>
     <App>
       <Suspense fallback={<div>Loading...</div>}>
-        {/* <Switch> */}
+        <Switch>
           <Route exact path="/home" component={Home}></Route>
           <Route exact path="/user" component={User}></Route>
           <Route exact path="/profile" component={Profile}></Route>
           <Route exact path="/counter" component={Counter}></Route>
           <Route exact path="/dom" component={DOMdiff}></Route>
-        {/* </Switch> */}
+        </Switch>
       </Suspense>
     </App>
   </HashRouter>

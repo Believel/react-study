@@ -18,8 +18,9 @@ export default class Route extends Component {
 
   }
   render() {
-
+    
     let { path, component: Component } = this.props;
+    console.log('Route render path ' + path)
     let { location } = this.context
     let result = location.pathname.match(this.reg)
     if (result) {

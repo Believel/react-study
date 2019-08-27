@@ -6,14 +6,14 @@ class Header extends Component {
   render() {
     return (
       <div>
-        <h4 style={{color: this.props.themeColor}}>学习react全家桶</h4>
+        <h4 style={{color: this.props.themeColor}}>案例1：设置主题色</h4>
       </div>
     );
   }
 }
 const mapStateToProps = (state, ownProps) => {
   return {
-    themeColor: state.themeColor
+    themeColor: state.themeReducer.themeColor
   }
 }
 

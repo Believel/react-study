@@ -14,7 +14,7 @@ class Content extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    themeColor: state.themeColor
+    themeColor: state.themeReducer.themeColor
   }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {

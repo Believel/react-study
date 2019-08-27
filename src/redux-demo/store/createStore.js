@@ -1,4 +1,4 @@
 import { createStore } from 'redux';
-import { themeReducer } from './rootReducer';
+import { rootReducers } from './reducers/rootReducer';
 
-export const store =  createStore(themeReducer)
+export const store =  createStore(rootReducers)

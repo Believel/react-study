@@ -32,4 +32,5 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 const mapDispatchToProps = Action
+
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);

@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// import { bindActionCreators} from 'redux';
+import Action from '../store/actions/counter';
+
+// let Actions = bindActionCreators(Action)
 
 class Counter extends Component {
   render() {
@@ -14,6 +18,9 @@ class Counter extends Component {
             setTimeout(this.props.incrementCounter, 1000)
           }
         }>过一秒后+</button>
+        <button className="btn" onClick={this.props.thunkIncrement}>过一秒后加1(异步)</button>
+        <button className="btn" onClick={this.props.promiseIncrement}>promise(加1)</button>
+        <button className="btn" onClick={this.props.payloadIncrement}>promise(加1)</button>
       </div>
     );
   }
@@ -24,14 +31,5 @@ const mapStateToProps = (state, ownProps) => {
     counter: state.counter.number
   }
 }
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    incrementCounter: () => {
-      dispatch({type: 'INCREMENT'})
-    },
-    decrementCounter: () => {
-      dispatch({type: 'DECREMENT'})
-    }
-  }
-}
+const mapDispatchToProps = Action
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);

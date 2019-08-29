@@ -12,15 +12,32 @@ import { Provider } from 'react-redux';
 // import App from './redux-demo/pages';
 
 // 引入redux-saga-demo中的Counter
-import Counter from './redux-saga-demo/components/Counter';
-import {store} from './redux-saga-demo/store';
+// import Counter from './redux-saga-demo/components/Counter';
+// import {store} from './redux-saga-demo/store';
+
+// react-router-redux-demo
+import { store, history} from './react-router-redux-demo/store';
+import Login from './react-router-redux-demo/components/Login';
+import Logout from './react-router-redux-demo/components/Logout';
+import {Route, Switch, Redirect} from 'react-router-dom';
+import { ConnectedRouter } from 'connected-react-router'
+
 ReactDOM.render(
   // <Provider store={store}>
   //   <App />
   // </Provider>
 
+  // <Provider store={store}>
+  //   <Counter/>
+  // </Provider>
   <Provider store={store}>
-    <Counter/>
+    <ConnectedRouter history={history}>
+      <Switch>
+        <Route path="/login" component={Login}></Route>
+        <Route path="/logout" component={Logout}></Route>
+        <Redirect to="/login"/>
+      </Switch>
+    </ConnectedRouter>
   </Provider>
   , document.getElementById('root'));
 

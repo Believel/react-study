@@ -6,12 +6,21 @@ import * as serviceWorker from './serviceWorker';
 // import Router from './router/router';
 // import AppRouter from './router-demo';
 import { Provider } from 'react-redux';
-import { store } from './redux-demo/store/createStore';
-import App from './redux-demo/pages';
 
+// redux-demo
+// import { store } from './redux-demo/store/createStore';
+// import App from './redux-demo/pages';
+
+// 引入redux-saga-demo中的Counter
+import Counter from './redux-saga-demo/components/Counter';
+import {store} from './redux-saga-demo/store';
 ReactDOM.render(
+  // <Provider store={store}>
+  //   <App />
+  // </Provider>
+
   <Provider store={store}>
-    <App />
+    <Counter/>
   </Provider>
   , document.getElementById('root'));
 

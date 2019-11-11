@@ -5,15 +5,15 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 // import Router from './router/router';
 // import AppRouter from './router-demo';
-// import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 
 // redux-demo
 // import { store } from './redux-demo/store/createStore';
 // import App from './redux-demo/pages';
 
 // 引入redux-saga-demo中的Counter
-// import Counter from './redux-saga-demo/components/Counter';
-// import {store} from './redux-saga-demo/store';
+import Counter from './redux-saga-demo/components/Counter';
+import {store} from './redux-saga-demo/store';
 
 // react-router-redux-demo
 // import { store, history} from './react-router-redux-demo/store';
@@ -24,16 +24,16 @@ import * as serviceWorker from './serviceWorker';
 
 
 // react-hooks
-import App from './react-hooks/pages';
+// import App from './react-hooks/pages';
 
 ReactDOM.render(
   // <Provider store={store}>
   //   <App />
   // </Provider>
 
-  // <Provider store={store}>
-  //   <Counter/>
-  // </Provider>
+  <Provider store={store}>
+    <Counter/>
+  </Provider>
   // <Provider store={store}>
   //   <ConnectedRouter history={history}>
   //     <Switch>
@@ -44,7 +44,7 @@ ReactDOM.render(
   //   </ConnectedRouter>
   // </Provider>
 
-  <App/>
+  // <App/>
   , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

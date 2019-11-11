@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware} from 'redux';
 import { rootReducers } from './reducers/rootReducer';
 
 // export const store =  createStore(rootReducers)
@@ -73,7 +73,7 @@ let promise = ({dispatch, getState}) => next => action => {
 }
 // export const store = applyMiddleware(promise, thunk, logger2)(createStore)(rootReducers)
 
-export const store = createStore(rootReducers, applyMiddleware(promise, thunk, logger1))
+export const store = createStore(rootReducers, applyMiddleware( promise, thunk, logger1, logger2 ))
 
 // compose(add3, add2, add1)
 // 从右向左开始计算，把每次的计算结果传递给下一个参数中，依次类推
@@ -89,6 +89,7 @@ export const store = createStore(rootReducers, applyMiddleware(promise, thunk, l
 // function compose(...fns) {
 //   if(fns.length === 1) return fns[0];
 //   return fns.reduce((a, b) => {
+//     debugger
 //     return (...args) => a(b(...args))
 //   })
 // }

@@ -5,7 +5,7 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 // import Router from './router/router';
 // import AppRouter from './router-demo';
-import { Provider } from 'react-redux';
+// import { Provider } from 'react-redux';
 
 // redux-demo
 // import { store } from './redux-demo/store/createStore';
@@ -16,11 +16,15 @@ import { Provider } from 'react-redux';
 // import {store} from './redux-saga-demo/store';
 
 // react-router-redux-demo
-import { store, history} from './react-router-redux-demo/store';
-import Login from './react-router-redux-demo/components/Login';
-import Logout from './react-router-redux-demo/components/Logout';
-import {Route, Switch, Redirect} from 'react-router-dom';
-import { ConnectedRouter } from 'connected-react-router'
+// import { store, history} from './react-router-redux-demo/store';
+// import Login from './react-router-redux-demo/components/Login';
+// import Logout from './react-router-redux-demo/components/Logout';
+// import {Route, Switch, Redirect} from 'react-router-dom';
+// import { ConnectedRouter } from 'connected-react-router'
+
+
+// react-hooks
+import App from './react-hooks/pages';
 
 ReactDOM.render(
   // <Provider store={store}>
@@ -30,15 +34,17 @@ ReactDOM.render(
   // <Provider store={store}>
   //   <Counter/>
   // </Provider>
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <Switch>
-        <Route path="/login" component={Login}></Route>
-        <Route path="/logout" component={Logout}></Route>
-        <Redirect to="/login"/>
-      </Switch>
-    </ConnectedRouter>
-  </Provider>
+  // <Provider store={store}>
+  //   <ConnectedRouter history={history}>
+  //     <Switch>
+  //       <Route path="/login" component={Login}></Route>
+  //       <Route path="/logout" component={Logout}></Route>
+  //       <Redirect to="/login"/>
+  //     </Switch>
+  //   </ConnectedRouter>
+  // </Provider>
+
+  <App/>
   , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
